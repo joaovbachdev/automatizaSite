@@ -6,7 +6,7 @@ import login
 from exemplos import NovaOs
 
 
-cenario = [NovaOs().adicionaTodos]
+cenario = [NovaOs().adicionaPedido]
 
 
 with sync_playwright() as playwright:
@@ -15,10 +15,8 @@ with sync_playwright() as playwright:
     page = context.new_page()
 
     login.run(playwright, page)
-    #time.sleep(20)
 
     contador = 0
     while contador<len(cenario):
-        cenario[contador](lib = playwright, pagina = page, custom=['teste3'], pedidoId="2bbcaf5c")
+        result = cenario[contador](lib = playwright, pagina = page, custom=['teste3'], pedidoId="2bbcaf5c")
         contador+=1
-        

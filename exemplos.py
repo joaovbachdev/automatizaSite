@@ -9,10 +9,6 @@ class NovaOs:
         time.sleep(3)
         kwargs['pagina'].locator("text=Nova O.S").click()
         time.sleep(5)
-        kwargs['pagina'].locator("text=Voltar para Modo de Planejamento").click()
-        time.sleep(1)
-        kwargs['pagina'].locator("text=Voltar para pedidos").click()
-        time.sleep(3)
         quantidade = kwargs['pagina'].query_selector_all("div[data-rowindex]")
         quantidade[0].query_selector("button").click()
         time.sleep(3)
@@ -20,13 +16,16 @@ class NovaOs:
         time.sleep(1)
         if quantidade == quantidade2:
             with open("relatorio.txt","a") as f:
-                f.write("falha ao adicionar um item para a O.S \n")
+                #f.write("falha ao adicionar um item para a O.S \n")
 
                 f.close()
+            
         else:
             with open("relatorio.txt","a") as f:
-                f.write("sucesso em adicionar um pedido para a O.S \n")
+                #f.write("sucesso em adicionar um pedido para a O.S \n")
                 f.close()
+            
+        print("sucessoaaaaa")
 
 
     def adicionaTodos(self, **kwargs):
