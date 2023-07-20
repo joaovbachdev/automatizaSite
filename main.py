@@ -12,17 +12,18 @@ def teste():
 
 @app.route("/testePost",methods=['GET'])
 def testPost():
-    final = ""
+    final = []
     result = subprocess.run(['python3', 'playMain.py'], capture_output=True, text=True).stdout
-    print(result,"sdfsdjfdskj")
+    
     with open("relatorio.txt","r+") as f:
         f.write(result)
         f.close()
     with open("relatorio.txt","r+") as f:
-        final = f.readlines()[-1]
+        for line in (f.readlines() [-2:]):
+            banco.relatorio.append(line)
 
-    print(final,"fjofjsdofj")
-    banco.relatorio.append(final)
+    
+    #banco.relatorio.append(final)
     return banco.relatorio
 
 app.debug=True

@@ -15,17 +15,19 @@ class NovaOs:
         quantidade2 = kwargs['pagina'].query_selector_all("div[data-rowindex]")
         time.sleep(1)
         if quantidade == quantidade2:
+            print("falha em adicionar um pedido")
             with open("relatorio.txt","a") as f:
                 #f.write("falha ao adicionar um item para a O.S \n")
 
                 f.close()
             
         else:
+            print("sucesso em adicionar um pedido")
             with open("relatorio.txt","a") as f:
                 #f.write("sucesso em adicionar um pedido para a O.S \n")
                 f.close()
             
-        print("sucessoaaaaa")
+       
 
 
     def adicionaTodos(self, **kwargs):

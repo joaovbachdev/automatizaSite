@@ -4,9 +4,10 @@ from playwright.sync_api import Playwright, sync_playwright
 import time
 import login
 from exemplos import NovaOs
+import banco
 
 
-cenario = [NovaOs().adicionaPedido]
+cenario = [NovaOs().adicionaPedido,NovaOs().adicionaPedido]
 
 
 with sync_playwright() as playwright:
@@ -20,3 +21,5 @@ with sync_playwright() as playwright:
     while contador<len(cenario):
         result = cenario[contador](lib = playwright, pagina = page, custom=['teste3'], pedidoId="2bbcaf5c")
         contador+=1
+
+banco.relatorio.append("dale")
